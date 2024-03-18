@@ -3,7 +3,11 @@ Materia: Projeto Aplicado 2 - Site Web
 
 Professor: Vinícius
 
-Grupo: Bianco Costa, Gabriel Marcos, Jhon Wilker, Júlia Sernagiotto
+Grupo: 
+* Bianco Costa (Prototipação)
+* Gabriel Marcos (Requisitos e arquitetura)
+* Jhon Wilker (Desenvolvimento)
+* Júlia Sernagiotto (Relacionamento e documentação)
 
 Scrum Master: Júlia Sernagiotto
 
