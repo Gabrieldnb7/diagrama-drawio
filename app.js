@@ -23,6 +23,10 @@ app.get('/register', (req, res) => {
     res.sendFile(path.join(publicDirectoryPath, 'register.html'));
 });
 
+app.get('/produto/', (req, res) => {
+    res.sendFile(path.join(publicDirectoryPath, 'produto.html'));
+});
+
 // Inicie o servidor
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
