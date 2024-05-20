@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lojita</title>
-    <link rel="shortcut icon" href="../Midia/logo_legal 1.png"  type="image/x-icon" >
+    <link rel="shortcut icon" href="/images/logo_legal 1.png"  type="image/x-icon" >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/css/style.css">
     
 </head>
 <body>
     <header>
         <div class="cabecalho">
-            <img src="../Midia/logo_legal 1.png" alt="Logo loja">
+            <img src="/images/logo_legal 1.png" alt="Logo loja">
             <div class="search"> 
                 <input type="text" id="searchInput" placeholder="Busque seus produtos aqui">
                 <label for="searchInput">
-                    <span class="span1"> <button type="submit" class="lupa"> <img src="../Midia/lupa.png" alt="Lupa pesquisa"></button> </span>
+                    <span class="span1"> <button type="submit" class="lupa"> <img src="/images/lupa.png" alt="Lupa pesquisa"></button> </span>
                 </label>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <h3><button class="carrinho"><img src="../Midia/Cart.png" alt="carrinho de compras"></button></button></h3>
-                    <h3><button class="perfil"><img src="../Midia/User.png" alt="Lupa pesquisa"></button></button></h3>
+                    <h3><button class="carrinho"><img src="/images/Cart.png" alt="carrinho de compras"></button></button></h3>
+                    <h3><button class="perfil"><img src="/images/User.png" alt="Lupa pesquisa"></button></button></h3>
                 </div>
                 </div>              
             </div>
@@ -43,17 +43,15 @@
     </header>
     <div>
         <div style="display:flex; flex-direction: row; justify-content: space-around; padding-left:20%; padding-right:20%; padding-top:20px ">
-            <div style="display: flex; flex-direction:column; justify-content: center; min-width:250px;">
-                <img src="../Midia/Camiseta_manguinha.jpg" alt="produto">
+            <div style="display: flex; flex-direction:column; justify-content: center; min-width:250px;" id="prodImg">
             </div>
             <div style="display:flex; width:50%; flex-direction: column; justify-content: space-between; min-height: 400px">
-                <div style="display: flex; align-items:center; justify-content:center;">
-                    <h2 style="text-align:center">EXEMPLO CAMISETA</h2>
+                <div style="display: flex; align-items:center; justify-content:center;" id="prodNome">
                 </div>
                 <div style="display:flex; flex-direction: column; padding-top:10px; ">
-                    <p style="height: 15px; width: 100px; padding:10px; margin:0px;">De R$00,00</p>
-                    <p style="height: 15px; width: 100px; padding:10px; margin:0px;">Por R$00,00</p>
-                    <p style="height: 15px; width: 200px; padding:10px; margin:0px;">Até 6x de R$00,00</p>
+                    <p style="height: 15px; width: 100px; padding:10px; margin:0px;" id="prodPrice">De R$00,00</p>
+                    <p style="height: 15px; width: 100px; padding:10px; margin:0px;" id="prodDiscount">Por R$00,00</p>
+                    <p style="height: 15px; width: 200px; padding:10px; margin:0px;" id="prodInstallment">Até 6x de R$00,00</p>
                 </div>
                 <p style="display: flex; justify-content: center;">Tamanhos</p>
                 <div style="display: flex; justify-content: center;">
@@ -78,18 +76,16 @@
             </div>
         </div>
     </div>
-    <div style="display:flex; background-color:rgb(217, 217, 217); margin-top: 10px; text-align: center; padding:10px">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, eius omnis alias, necessitatibus corporis distinctio est saepe delectus, quaerat soluta nostrum magnam corrupti! Obcaecati eius omnis aliquam. Libero, ducimus? Quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ut tenetur esse libero ipsam, autem cupiditate reprehenderit quod quos dignissimos accusamus ipsum dolorum cumque officiis, veritatis quibusdam quia incidunt expedita? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quo iure, doloremque at excepturi, asperiores commodi veniam error, libero cumque voluptatem! Quidem et molestiae iure optio expedita officia cum pariatur.
-        </p>
+    <div style="display:flex; background-color:rgb(217, 217, 217); margin-top: 10px; text-align: center; padding:10px" id="prodDesc">
     </div>
     <div style="display:flex; justify-content: center; max-height:1100px; padding-top: 20px">
-        <img src="../Midia/exemplo-tamanhos.webp" alt="exemplo de tamanhos de camisetas">
+        <img src="/images/exemplo-tamanhos.webp" alt="exemplo de tamanhos de camisetas">
     </div>
     <footer>
         <div class="rodape">
             <div class="esquerda">
-                <div class="logo"><img src="../Midia/logo_legal 1.png" alt="logo_loja"></div>
-                <div class="qrcode"><img src="../Midia/qrcode.png" alt="qrcode"></div>
+                <div class="logo"><img src="/images/logo_legal 1.png" alt="logo_loja"></div>
+                <div class="qrcode"><img src="/images/qrcode.png" alt="qrcode"></div>
             </div>
             <div class="direita">
                 <ul class="foot">
@@ -139,38 +135,7 @@
             </div>
         </div>
     </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const decreaseButton = document.getElementById("decrease");
-            const increaseButton = document.getElementById("increase");
-            const quantitySpan = document.getElementById("quantity");
-            const addToCartButton = document.getElementById("addToCart");
-            const sizeButtons = document.querySelectorAll('.size-button');
-        
-            let quantity = 1;
-        
-            decreaseButton.addEventListener("click", () => {
-                if (quantity > 1) {
-                    quantity--;
-                    quantitySpan.textContent = quantity;
-                }
-            });
-        
-            increaseButton.addEventListener("click", () => {
-                quantity++;
-                quantitySpan.textContent = quantity;
-            });
-            sizeButtons.forEach(button => {
-                button.addEventListener("click", () => {
-                    // Remover a classe 'selected' de todos os botões
-                    sizeButtons.forEach(btn => btn.classList.remove('selected'));
-                    // Adicionar a classe 'selected' ao botão clicado
-                    button.classList.add("selected");
-                    // Atualizar o tamanho selecionado
-                    selectedSize = button.getAttribute("data-size");
-                });
-            });
-        });
+    <script src="/js/produto.js">
     </script>
 </body>
 </html>

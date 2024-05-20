@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 
 // Defina o diretório onde estão suas páginas HTML
-const publicDirectoryPath = path.join(__dirname, './public');
+const publicDirectoryPath = path.join(__dirname, '/public');
 
 // Defina a pasta pública para servir arquivos estáticos
 app.use(express.static(publicDirectoryPath));
@@ -23,7 +23,7 @@ app.get('/register', (req, res) => {
     res.sendFile(path.join(publicDirectoryPath, 'register.html'));
 });
 
-app.get('/produto/', (req, res) => {
+app.get('/produto/:id', (req, res) => {
     res.sendFile(path.join(publicDirectoryPath, 'produto.html'));
 });
 

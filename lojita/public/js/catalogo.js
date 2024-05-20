@@ -17,19 +17,21 @@ function renderProducts(products) {
     products.forEach(product => {
         container.innerHTML += `
             <li class="prod">
-                <a class="btnProduto">
+                <a href="/produto/${product.id}" class="btnProduto">
                     <div class="produto">
                         <div class="imagem">
                             <img src="${product.image}">
                         </div>
-                        <div class="nome">
-                            ${product.title}
-                        </div>
-                        <div class="preco">
-                            De: R$89,99
-                        </div>
-                        <div class="promocao">
-                            Por: R$59,99
+                        <div class="product-caption">
+                            <div class="nome">
+                                ${product.title}
+                            </div>
+                            <div class="preco">
+                                De: ${product.price}
+                            </div>
+                            <div class="promocao">
+                                Por: ${Math.round(product.price - product.price * 0.1).toLocaleString('pt-br', { style: "currency", currency: "BRL"})}
+                            </div>
                         </div>
                     </div>
                 </a>
