@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+   
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo à Logita!</title>
+    <link rel ="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    </head>       
+        <body>            
+            <header>
+                <div class="cabecalho">
+                    <a class="img-logo" href="/"><img src="/images/logo_legal 1.png" alt="Logo loja"></a>
+                    <div class="search"> 
+                        <input type="text" id="searchInput" placeholder="Busque seus produtos aqui">
+                        <label for="searchInput">
+                            <span class="span1"> <button type="submit" class="lupa"> <img src="/images/lupa.png" alt="Lupa pesquisa"></button> </span>
+                        </label>
+                    </div>
+                    <div class="card-container">
+                        <div class="card">
+                            <h3><button class="carrinho"><a href="/carrinho"><img src="/images/Cart.png" alt="carrinho de compras"></a></button></h3>
+                            <h3><button class="perfil"><a href="/login"><img src="/images/User.png" alt="Lupa pesquisa"></a></button></h3>
+                        </div>
+                        </div>              
+                    </div>
+                </div>
+                <div class="categorias">
+                    <ul class="tag">
+                        <a href="/catalogo">TODAS AS COLEÇÕES</a>
+                        <a href="/masculino">MASCULINO</a>
+                        <a href="/feminino">FEMININO</a>
+                    </ul>
+                </div>
+            </header>
+            <div carrossel>
+                <div class="slideshow-container">
+                    <link rel ="stylesheet" href="/css/carrossel.css">    
+                    <!-- Full-width images with number and caption text -->
+                    <div class="mySlides fade">
+                      <img src="/images/carrossel1.svg">
+                      <div class="text">Produto 1</div>
+                    </div>
+                  
+                    <div class="mySlides fade">
+                      <img src="/images/carrossel2.svg">
+                      <div class="text">Produto 2</div>
+                    </div>
+                  
+    
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                  </div>
+            </div>
+           
+            <div class="infos-extra">
+                    <ul>
+                        <img src="/images/card.png" class="icon-extra">
+                        PARCELAMOS EM ATÉ 12X SEM JUROS!       
+                    </ul>
+
+                    <ul>
+                        <img src="/images/caminhao.png" class="icon-extra">
+                        FRETE GRÁTIS EM TODO O PAÍS!
+                    </ul>
+                    
+            </div>
+
+            <br>
+            <br>
+
+
+            <article>
+           
+            <section class="inferior">
+                <ul class="produtoslist">
+                    <li class="prod">
+                        <button class="btnProduto">
+                            <div class="produto">
+                                <div class="imagem">
+                                    <img src="images/mochila_azul.png" alt="mochila_azul">
+                                </div>
+                                <div class="nome">
+                                    Mochila azul raposa
+                                </div>
+                                <div class="preco">
+                                    De: R$89,99
+                                </div>
+                                <div class="promocao">
+                                    Por: R$59,99
+                                </div>
+                            </div>
+                        </button>
+                    </li>
+                    <li class="prod">
+                        <button class="btnProduto">
+                            <div class="produto">
+                                <div class="imagem">
+                                    <img src="images/casaco_roxo.jpg" alt="casaco_roxo">
+                                </div>
+                                <div class="nome">
+                                    Casaco de inverno roxo
+                                </div>
+                                <div class="preco">
+                                    De: R$119,90
+                                </div>
+                                <div class="promocao">
+                                    Por: R$89,90
+                                </div>
+                            </div>
+                        </button>
+                    </li>
+                    <li class="prod">
+                        <button class="btnProduto">
+                            <div class="produto">
+                                <div class="imagem">
+                                    <img src="images/casaco_preto.jpg" alt="casaco_preto">
+                                </div>
+                                <div class="nome">
+                                    Casaco de couro preto
+                                </div>
+                                <div class="preco">
+                                    De: R$159,90
+                                </div>
+                                <div class="promocao">
+                                    Por: R$119,90
+                                </div>
+                            </div>
+                        </button>
+                    </li>
+                
+                </ul>
+            </section>
+            </article>
+            
+            <footer>
+        <div class="rodape">
+            <div class="esquerda">
+                <div class="logo"><img src="images/logo_legal 1.png" alt="logo_loja"></div>
+                <div class="qrcode"><img src="images/qrcode.png" alt="qrcode"></div>
+            </div>
+            <div class="direita">
+                <ul class="foot">
+                    <li>
+                        Institucional
+                        <ul class="topicos">
+                            <a href="" class="link">
+                                <li>Home</li>
+                            </a>
+                            <a href="" class="link">
+                                <li>Onde estamos</li>
+                            </a>
+                            <a href="" class="link">
+                                <li>Fale Conosco</li>
+                            </a>
+                            <a href="" class="link">
+                                <li>Dúvidas Frequentes</li>
+                            </a>
+                        </ul>
+                    </li>
+                    <li>
+                        Ajuda
+                        <ul class="topicos">
+                            <a href="" class="link">
+                                <li>Troca de peças</li>
+                            </a>
+                            <a href="" class="link">
+                                <li>Rastreio</li>
+                            </a>
+                            <a href="" class="link">
+                                <li>Cashback</li>
+                            </a>
+                        </ul>
+                    </li>
+                    <li>
+                        Termos de uso
+                        <ul class="topicos">
+                            <a href="" class="link">
+                                <li>Segurança</li>
+                            </a>
+                            <a href="" class="link">
+                                <li>Privacidade</li>
+                            </a>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    
+            </footer>
+
+            <script src="/js/index.js">
+            
+            </script>
+         </body>
+</html>
