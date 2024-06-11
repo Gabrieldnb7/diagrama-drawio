@@ -164,13 +164,29 @@
 
 }
 
-.infos-extra{
+.infos-extra {
     background-color: #ebebeb;
     padding: 6px;
     text-align: center;
-    
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaço entre os itens */
 }
 
-.icon-extra{
-    width: 2%;
+.infos-extra ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0 20px;
+}
+
+.icon-extra {
+    width: 40px; /* Tamanho fixo para os ícones */
+    height: 40px;
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.icones-header{
+    width: 60px;
+    height: 60px;
 }
