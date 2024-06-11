@@ -10,7 +10,7 @@ app.use(express.static(publicDirectoryPath));
 
 // Rota para a página inicial
 app.get('/', (req, res) => {
-    res.sendFile(path.join(publicDirectoryPath, 'catalogo.html'));
+    res.sendFile(path.join(publicDirectoryPath, 'index.html'));
 });
 
 // Rota para outra página HTML
@@ -26,6 +26,20 @@ app.get('/register', (req, res) => {
 app.get('/produto/:id', (req, res) => {
     res.sendFile(path.join(publicDirectoryPath, 'produto.html'));
 });
+
+app.get('/catalogo', (req, res) => {
+    res.sendFile(path.join(publicDirectoryPath, 'catalogo.html'))
+})
+
+app.get('/carrinho', (req, res) => {
+    res.sendFile(path.join(publicDirectoryPath, 'carrinho.html'))
+})
+app.get('/masculino', (req, res) => {
+    res.sendFile(path.join(publicDirectoryPath, 'masculino.html'))
+})
+app.get('/feminino', (req, res) => {
+    res.sendFile(path.join(publicDirectoryPath, 'feminino.html'))
+})
 
 // Inicie o servidor
 const port = process.env.PORT || 5000;
