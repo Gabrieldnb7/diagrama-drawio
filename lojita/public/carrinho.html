@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logita - Carrinho</title>
+    <link rel="stylesheet" href="/css/carrinho.css">
+    <link rel="shortcut icon" href="/images/logo_para_navegador.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="checkout-left">
+            <header>
+                <a class="logo" href="/"><img src="/images/logo_legal 1.png" alt="Logo loja"></a>
+            </header>
+            <h1>Checkout</h1>
+            <input type="checkbox" id="selectAll" class="select-all"> Marcar todos
+            <div class="product" data-price="75.90">
+                <input type="checkbox" class="product-select">
+                <span>Produto 1</span>
+                <input type="number" class="quantity" value="1" min="1">
+                <button class="remove-product">Remover</button>
+                <span class="product-total">R$ 75,90</span>
+            </div>
+            <div class="product" data-price="120.50">
+                <input type="checkbox" class="product-select">
+                <span>Produto 2</span>
+                <input type="number" class="quantity" value="1" min="1">
+                <button class="remove-product">Remover</button>
+                <span class="product-total">R$ 120,50</span>
+            </div>
+            <div class="product" data-price="60.30">
+                <input type="checkbox" class="product-select">
+                <span>Produto 3</span>
+                <input type="number" class="quantity" value="1" min="1">
+                <button class="remove-product">Remover</button>
+                <span class="product-total">R$ 60,30</span>
+            </div>
+            <a href="#" class="continue-shopping">Clique aqui para continuar comprando</a>
+        </div>
+        
+        <div class="checkout-right">
+            <div class="order-summary">
+                <h2>Resumo do pedido</h2>
+                <div class="order-subtotal">
+                    <span>Subtotal do pedido</span>
+                    <span id="subtotal">R$ 0,00</span>
+                </div>
+                <div class="order-shipping">
+                    <label for="cep">Frete:</label>
+                    <input type="text" id="cep" placeholder="00000-000" pattern="\d{5}-\d{3}">
+                    <button id="calculateShipping">Calcular Frete</button>
+                </div>
+                <div class="order-total">
+                    <span>Total:</span>
+                    <span id="total">R$ 0,00</span>
+                </div>
+                <button id="finalizePurchase">Finalizar Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="rodape">
+            <div class="esquerda">
+                <div class="logo"><img src="/images/logo_legal 1.png" alt="logo_loja"></div>
+                <div class="qrcode"><img src="/images/qrcode.png" alt="qrcode"></div>
+            </div>
+            <div class="direita">
+                <ul class="foot">
+                    <li>
+                        Institucional
+                        <ul class="topicos">
+                            <a href="" class="link">
+                                <li>Home</li>
+                            </a>
+                            <a href="" class="link">
+                                <li>Onde estamos</li>
+                            </a>
+                            <a href="" class="link">
+                                <li>Fale Conosco</li>
+                            </a>
+                            <a href="" class="link">
+                                <li>Dúvidas Frequentes</li>
+                            </a>
+                        </ul>
+                    </li>
+                    <li>
+                        Ajuda
+                        <ul class="topicos">
+                            <a href="" class="link">
+                                <li>Troca de peças</li>
+                            </a>
+                            <a href="" class="link">
+                                <li>Rastreio</li>
+                            </a>
+                            <a href="" class="link">
+                                <li>Cashback</li>
+                            </a>
+                        </ul>
+                    </li>
+                    <li>
+                        Termos de uso
+                        <ul class="topicos">
+                            <a href="" class="link">
+                                <li>Segurança</li>
+                            </a>
+                            <a href="" class="link">
+                                <li>Privacidade</li>
+                            </a>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Compra Aprovada!</p>
+        </div>
+    </div>
+
+    <script src="/js/carrinho.js"></script>
+</body>
+</html>
