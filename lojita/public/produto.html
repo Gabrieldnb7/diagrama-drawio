@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lojita</title>
-    <link rel="shortcut icon" href="/images/logo_legal 1.png"  type="image/x-icon" >
+    <link rel="shortcut icon" href="/images/logo_para_navegador.png"  type="image/x-icon" >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 <body>
     <header>
         <div class="cabecalho">
-            <img src="/images/logo_legal 1.png" alt="Logo loja">
+            <a class="img-logo" href="/"><img src="/images/logo_legal 1.png" alt="Logo loja"></a>
             <div class="search"> 
                 <input type="text" id="searchInput" placeholder="Busque seus produtos aqui">
                 <label for="searchInput">
@@ -23,62 +23,56 @@
             </div>
             <div class="card-container">
                 <div class="card">
-                    <h3><button class="carrinho"><img src="/images/Cart.png" alt="carrinho de compras"></button></button></h3>
-                    <h3><button class="perfil"><img src="/images/User.png" alt="Lupa pesquisa"></button></button></h3>
+                    <h3><button class="carrinho"><a href="/carrinho"><img src="/images/Cart.svg" alt="carrinho de compras" class="icones-header"></a></button></h3>
+                    <h3><button class="perfil"><a href="/login"><img src="/images/User.svg" alt="Botão do usuário" class="icones-header"></a></button></h3>
                 </div>
                 </div>              
             </div>
         </div>
         <div class="categorias">
-            <ul>
-                <li><button class="cat">TODAS AS COLEÇÕES</button></li>
-                <li><button class="cat">MASCULINO</button></li>
-                <li><button class="cat">FEMININO</button></li>
-                <li><button class="cat">TEMPLATE</button></li>
-                <li><button class="cat">DE</button></li>
-                <li><button class="cat">POUCA</button></li>
-                <li><button class="cat">VARIEDADE</button></li>
+            <ul class="tag">
+                <a href="/catalogo">TODAS AS COLEÇÕES</a>
+                <a href="/masculino">MASCULINO</a>
+                <a href="/feminino">FEMININO</a>
             </ul>
         </div>
     </header>
     <div>
-        <div style="display:flex; flex-direction: row; justify-content: space-around; padding-left:20%; padding-right:20%; padding-top:20px ">
-            <div style="display: flex; flex-direction:column; justify-content: center; min-width:250px;" id="prodImg">
+        <div class="img-desc">
+            <div class="prod-img" id="prodImg">
             </div>
-            <div style="display:flex; width:50%; flex-direction: column; justify-content: space-between; min-height: 400px">
-                <div style="display: flex; align-items:center; justify-content:center;" id="prodNome">
+            <div class="prod-desc">
+                <div class="prod-nome" id="prodNome">
                 </div>
-                <div style="display:flex; flex-direction: column; padding-top:10px; ">
-                    <p style="height: 15px; width: 100px; padding:10px; margin:0px;" id="prodPrice">De R$00,00</p>
-                    <p style="height: 15px; width: 100px; padding:10px; margin:0px;" id="prodDiscount">Por R$00,00</p>
-                    <p style="height: 15px; width: 200px; padding:10px; margin:0px;" id="prodInstallment">Até 6x de R$00,00</p>
+                <div class="prod-preco">
+                    <p class="text-preco" id="prodPrice">De R$00,00</p>
+                    <p class="text-preco" id="prodDiscount">Por R$00,00</p>
+                    <p class="text-preco" id="prodInstallment">Até 6x de R$00,00</p>
                 </div>
-                <p style="display: flex; justify-content: center;">Tamanhos</p>
-                <div style="display: flex; justify-content: center;">
-                    <div style="display: flex; justify-content: space-between; background-color: rgb(166, 168, 169); border-radius:10px; height:80px; width:90%; padding:10px;">
-                        <button style="width: 15%; height:35%;" class="size-button" data-size="P">P</button>
-                        <button style="width: 15%; height:35%;" class="size-button" data-size="M">M</button>
-                        <button style="width: 15%; height:35%;" class="size-button" data-size="G">G</button>
-                        <button style="width: 15%; height:35%;" class="size-button" data-size="GG">GG</button>
-                        <button style="width: 15%; height:35%;" class="size-button" data-size="XG">XG</button>
+                <p class="prod-tamanhos">Tamanhos</p>
+                    <div style="display: flex; justify-content:center;">
+                        <div class="tamanho-quadro-interno">
+                            <button class="size-button" data-size="P">P</button>
+                            <button class="size-button" data-size="M">M</button>
+                            <button class="size-button" data-size="G">G</button>
+                            <button class="size-button" data-size="GG">GG</button>
+                            <button class="size-button" data-size="XG">XG</button>
+                        </div>
                     </div>
-                </div>
-                <div style="display:flex; flex-direction: row; justify-content:space-between; padding:10px;">
-                    <div>
+                <div class="qtd-opcao">
+                    <div class="quantity-container">
                         <button id="decrease">-</button>
                         <span id="quantity">1</span>
                         <button id="increase">+</button>
-                    </div>
-                    <div style="display: flex;">
-                                <button style="min-width: 100px;">Selecionar opção</button>
-                            </div>
-                    </div>
+                    </div>                        
+                    <button type="button" class="button-3">Selecionar opção</button>
+                </div>
             </div>
         </div>
     </div>
-    <div style="display:flex; background-color:rgb(217, 217, 217); margin-top: 10px; text-align: center; padding:10px" id="prodDesc">
+    <div class="text-desc" id="prodDesc">
     </div>
-    <div style="display:flex; justify-content: center; max-height:1100px; padding-top: 20px">
+    <div class="img-tamanhos">
         <img src="/images/exemplo-tamanhos.webp" alt="exemplo de tamanhos de camisetas">
     </div>
     <footer>
