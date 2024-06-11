@@ -2,12 +2,18 @@ const $ = element => document.querySelector(element)
 
 window.addEventListener('DOMContentLoaded', getProducts)
 
-function getProducts() {
-    fetch("https://fakestoreapi.com/products/category/women's clothing")
-        .then(response => response.json())
-        .then(products => {
-            renderProducts(products);
-        })
+async function getProducts() {
+    const respostas = await Promise.all([
+        fetch("https://fakestoreapi.com/products/category/men's clothing"),
+        fetch("https://fakestoreapi.com/products/category/women's clothing")        
+    ]);
+    const [resposta1, resposta2] = respostas;
+    const data1 = await resposta1.json();
+    const data2 = await resposta2.json();
+    console.log('Dados da rota 1:', data1);
+    console.log('Dados da rota 2:', data2);
+    const product = [...data1, ...data2];
+        renderProducts(product);
 }
 
 function renderProducts(products) {
@@ -27,7 +33,7 @@ function renderProducts(products) {
                                 ${product.title}
                             </div>
                             <div class="preco">
-                                De: ${product.price}
+                                De: ${product.price.toLocaleString('pt-br', { style: "currency", currency: "BRL"})}
                             </div>
                             <div class="promocao">
                                 Por: ${Math.round(product.price - product.price * 0.1).toLocaleString('pt-br', { style: "currency", currency: "BRL"})}
