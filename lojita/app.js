@@ -1,47 +1,54 @@
-const express = require('express');
-const app = express();
-const path = require('path');
+import Express from "express";
+import { connection } from "./db.js";
 
-// Defina o diretório onde estão suas páginas HTML
-const publicDirectoryPath = path.join(__dirname, '/public');
+import { authRouter } from "./routes/auth.js";
+import { userRouter } from "./routes/user.js";
+import { cartRouter } from "./routes/cart.js";
 
-// Defina a pasta pública para servir arquivos estáticos
-app.use(express.static(publicDirectoryPath));
+import 'dotenv/config';
 
-// Rota para a página inicial
+const app = Express();
+
+// Conectando ao banco de dados
+connection.authenticate()
+    .then(() => console.log("Database has been connected successfully."))
+    .catch((err) => console.log("Unable to connect to database: ", err))
+
+app.use(Express.static('public')); // Pasta para arquivos estáticos
+app.use(Express.json()); // Configurando Express para ler JSON
+
+// Rotas de paginação
 app.get('/', (req, res) => {
-    res.sendFile(path.join(publicDirectoryPath, 'index.html'));
+    res.sendFile('./index.html');
 });
-
-// Rota para outra página HTML
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(publicDirectoryPath, 'login.html'));
+    res.sendFile('./login.html');
 });
-
-// Rota para outra página HTML
 app.get('/register', (req, res) => {
-    res.sendFile(path.join(publicDirectoryPath, 'register.html'));
+    res.sendFile('./register.html');
 });
-
 app.get('/produto/:id', (req, res) => {
-    res.sendFile(path.join(publicDirectoryPath, 'produto.html'));
+    res.sendFile('./produto.html');
 });
-
 app.get('/catalogo', (req, res) => {
-    res.sendFile(path.join(publicDirectoryPath, 'catalogo.html'))
+    res.sendFile('./catalogo.html')
 })
-
 app.get('/carrinho', (req, res) => {
-    res.sendFile(path.join(publicDirectoryPath, 'carrinho.html'))
+    res.sendFile('./carrinho.html')
 })
 app.get('/masculino', (req, res) => {
-    res.sendFile(path.join(publicDirectoryPath, 'masculino.html'))
+    res.sendFile('./masculino.html')
 })
 app.get('/feminino', (req, res) => {
-    res.sendFile(path.join(publicDirectoryPath, 'feminino.html'))
+    res.sendFile('./feminino.html')
 })
 
-// Inicie o servidor
+// Rotas da API
+app.use("/auth", authRouter);
+app.use("/user/", userRouter);
+app.use("/cart/", cartRouter);
+
+// Iniciando o servidor
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
