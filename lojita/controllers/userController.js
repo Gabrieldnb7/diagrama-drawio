@@ -3,7 +3,7 @@ import { User, Cart } from "../models/index.js";
 export const findOne = async (req, res) => {
     const id = parseInt(req.params.id);
 
-    if(req.userId !== id) return res.status(401).json({ msg: "Acesso negado!" });
+    if(req.userId !== id) return res.status(403).json({ msg: "Acesso negado!" });
     
     const user = await User.findOne({ 
         where: { id },

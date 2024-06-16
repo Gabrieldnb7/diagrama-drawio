@@ -1,5 +1,6 @@
 import Express from "express";
 import { connection } from "./db.js";
+import cookieParser from "cookie-parser";
 
 import path from "path";
 import { fileURLToPath } from "url";
@@ -11,7 +12,6 @@ import { cartRouter } from "./routes/cart.js";
 import 'dotenv/config';
 
 const app = Express();
-
 
 // Conectando ao banco de dados
 connection.authenticate()
@@ -26,6 +26,7 @@ const publicDir = path.join(__dirname, 'public');
 
 app.use(Express.static(publicDir)); // Pasta para arquivos estáticos
 app.use(Express.json()); // Configurando Express para ler JSON
+app.use(cookieParser()); // setando middleware para que o Express possa ler cookies
 
 // Rotas de paginação
 app.get('/', (req, res) => {

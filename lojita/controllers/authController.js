@@ -56,7 +56,7 @@ export const register = async (req, res) => {
 }
 
 export const login = async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, rememberMe } = req.body;
 
     if (!email) {
         return res.status(422).json({ msg: "O email é obrigatório!" });
@@ -85,7 +85,13 @@ export const login = async (req, res) => {
             }, 
             secret
         );
-        res.status(200).json({ msg: "Autenticação realizada com sucesso!", token });
+
+        if(rememberMe) {
+            const cookieAge = 1 * 24 * 60 * 60 * 1000 // 1 dia em millisegundos
+            res.status(200).cookie('access_token', token, { maxAge: cookieAge }).json({ msg: "Autenticação realizada com sucesso!" });
+        }
+
+        res.status(200).cookie('access_token', token).json({ msg: "Sessão autenticada com sucesso!" });
     } catch(error) {
         res.status(500).json({ msg: ""+error });
     }
