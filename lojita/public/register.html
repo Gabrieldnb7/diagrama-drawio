@@ -44,26 +44,26 @@
             <p class="caption">Preencha os campos com seus dados</p>
         </div>
 
-        <form action="POST">
+        <form id="register-form" action="POST">
             
             <div class="input-icon">
-                <input type="text" id="name" placeholder="Nome completo">
+                <input type="text" id="name" placeholder="Nome completo" class="input">
             </div>
 
             <div class="input-icon">
-                <input type="text" id="username" placeholder="Email" class="input">
+                <input type="text" id="email" placeholder="Email" class="input" >
             </div>
             
             <div class="input-icon">
-                <input type="text" id="number" placeholder="Telefone" class="input">
+                <input type="text" id="phoneNumber" placeholder="Telefone" class="input" >
             </div>
             
             <div class="input-icon">
-                <input type="password" id="password" placeholder="Senha" class="input">
+                <input type="password" id="password" placeholder="Senha" class="input" >
             </div>
 
             <div class="input-icon">
-                <input type="text" id="passoword-confirm" placeholder="Confirme sua senha" class="input">
+                <input type="password" id="confirmPassword" placeholder="Confirme sua senha" class="input" >
             </div>
 
             <button type="submit" class="register-button" id="registerSubmit">Registar</button>
@@ -128,5 +128,9 @@
             </div>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.6/dist/inputmask.min.js"></script>
+    <script type="module" src="/js/register.js" ></script>
+    <script src="/js/form-validators/RegisterFormValidator.js"></script>
 </body>
 </html>
