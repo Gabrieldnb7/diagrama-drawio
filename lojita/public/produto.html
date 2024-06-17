@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/carrossel.css">
+    <link rel="stylesheet" href="/css/produto.css">
     <link rel="stylesheet" href="/css/style.css">
     
 </head>
@@ -22,11 +24,11 @@
                 </label>
             </div>
             <div class="card-container">
-                <div class="card">
-                    <h3><button class="carrinho"><a href="/carrinho"><img src="/images/Cart.svg" alt="carrinho de compras" class="icones-header"></a></button></h3>
-                    <h3><button class="perfil"><a href="/login"><img src="/images/User.svg" alt="Botão do usuário" class="icones-header"></a></button></h3>
-                </div>
-                </div>              
+                <h3><button class="carrinho"><a href="/carrinho"><img src="/images/Cart.svg" alt="carrinho de compras" class="icones-header"></a></button></h3>
+                    <h3 class="dropdown">
+                        <button class="perfil"><a href="/login"><img src="/images/User.svg" alt="Botão do usuário" class="icones-header user-icon"></a></button>
+                        <div class="dropdown-content"><a id="logout">Log-out</a></div>
+                    </h3>              
             </div>
         </div>
         <div class="categorias">
@@ -65,7 +67,7 @@
                         <span id="quantity">1</span>
                         <button id="increase">+</button>
                     </div>                        
-                    <button type="button" class="button-3">Selecionar opção</button>
+                    <button type="button" id="addToCart" class="button-3">Adicionar ao carrinho</button>
                 </div>
             </div>
         </div>
@@ -75,6 +77,22 @@
     <div class="img-tamanhos">
         <img src="/images/exemplo-tamanhos.webp" alt="exemplo de tamanhos de camisetas">
     </div>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Carrinho de Compras</h2>
+            <ul id="cartItems">
+                <!-- Os itens do carrinho serão adicionados aqui -->
+            </ul>
+            <div class="modal-footer">
+                <p>Subtotal: R$ <span id="subtotal">0,00</span></p>
+                <button id="goToCart" class="checkout-btn">Ir para o Carrinho</button>
+
+            </div>
+        </div>
+    </div>
+    
     <footer>
         <div class="rodape">
             <div class="esquerda">
@@ -129,7 +147,17 @@
             </div>
         </div>
     </footer>
-    <script src="/js/produto.js">
-    </script>
+
+    <div id="purchaseModal" class="popup-modal">
+        <div class="popup-modal-content">
+            <span class="popup-close">&times;</span>
+            <h1 class="title">Titulo</h1>
+            <p class="description">Compra Aprovada!</p>
+        </div>
+    </div>
+
+    <script src="/js/utils.js"></script>
+    <script src="/js/carrinho-modal.js"></script>
+    <script src="/js/produto.js"></script>
 </body>
 </html>

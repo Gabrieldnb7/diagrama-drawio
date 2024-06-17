@@ -1,10 +1,10 @@
 import { Cart, CartItem } from "../models/index.js";
 
 export const findOne = async (req, res) => {
-    const cartId = req.params.id;
+    const userId = req.userId;
 
     const cart = await Cart.findOne({
-        where: { id: cartId },
+        where: { userId },
         include: [{
             model: CartItem,
             as: 'items',

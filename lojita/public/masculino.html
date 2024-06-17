@@ -21,11 +21,11 @@
                 </label>
             </div>
             <div class="card-container">
-                <div class="card">
-                    <h3><button class="carrinho"><a href="/carrinho"><img src="/images/Cart.svg" alt="carrinho de compras" class="icones-header"></a></button></h3>
-                    <h3><button class="perfil"><a href="/login"><img src="/images/User.svg" alt="Botão do usuário" class="icones-header"></a></button></h3>
-                </div>
-                </div>              
+                <h3><button class="carrinho"><a href="/carrinho"><img src="/images/Cart.svg" alt="carrinho de compras" class="icones-header"></a></button></h3>
+                    <h3 class="dropdown">
+                        <button class="perfil"><a href="/login"><img src="/images/User.svg" alt="Botão do usuário" class="icones-header user-icon"></a></button>
+                        <div class="dropdown-content"><a id="logout">Log-out</a></div>
+                    </h3>          
             </div>
         </div>
         <div class="categorias">
@@ -50,6 +50,22 @@
                 </ul>
             </section>
         </article>
+
+        <div id="cartModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Carrinho de Compras</h2>
+                <ul id="cartItems">
+                    <!-- Os itens do carrinho serão adicionados aqui -->
+                </ul>
+                <div class="modal-footer">
+                    <p>Subtotal: R$ <span id="subtotal">0,00</span></p>
+                    <button id="goToCart" class="checkout-btn">Ir para o Carrinho</button>
+    
+                </div>
+            </div>
+        </div>
+        
     <footer>
         <div class="rodape">
             <div class="esquerda">
@@ -104,6 +120,8 @@
             </div>
         </div>
     </footer>
-    <script src="/js/masculino.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/carrinho-modal.js"></script>
+    <script src="/js/catalogo.js"></script>
 </body>
 </html>

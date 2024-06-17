@@ -18,30 +18,14 @@
             </header>
             <h1>Checkout</h1>
             <input type="checkbox" id="selectAll" class="select-all"> Marcar todos
-            <div class="product" data-price="75.90">
-                <input type="checkbox" class="product-select">
-                <span>Produto 1</span>
-                <input type="number" class="quantity" value="1" min="1">
-                <button class="remove-product">Remover</button>
-                <span class="product-total">R$ 75,90</span>
-            </div>
-            <div class="product" data-price="120.50">
-                <input type="checkbox" class="product-select">
-                <span>Produto 2</span>
-                <input type="number" class="quantity" value="1" min="1">
-                <button class="remove-product">Remover</button>
-                <span class="product-total">R$ 120,50</span>
-            </div>
-            <div class="product" data-price="60.30">
-                <input type="checkbox" class="product-select">
-                <span>Produto 3</span>
-                <input type="number" class="quantity" value="1" min="1">
-                <button class="remove-product">Remover</button>
-                <span class="product-total">R$ 60,30</span>
-            </div>
-            <a href="#" class="continue-shopping">Clique aqui para continuar comprando</a>
+            <ul id="checkout">
+
+                <!-- Onde os items do carrinho são carregados -->
+
+            </ul>
+            <a href="/" class="continue-shopping">Clique aqui para continuar comprando</a>
         </div>
-        
+
         <div class="checkout-right">
             <div class="order-summary">
                 <h2>Resumo do pedido</h2>
@@ -51,7 +35,7 @@
                 </div>
                 <div class="order-shipping">
                     <label for="cep">Frete:</label>
-                    <input type="text" id="cep" placeholder="00000-000" pattern="\d{5}-\d{3}">
+                    <input type="text" id="cep" placeholder="71691-245" pattern="\d{5}-\d{3}">
                     <button id="calculateShipping">Calcular Frete</button>
                 </div>
                 <div class="order-total">
@@ -118,13 +102,16 @@
         </div>
     </footer>
 
-    <div id="purchaseModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Compra Aprovada!</p>
+    <div id="purchaseModal" class="popup-modal">
+        <div class="popup-modal-content">
+            <span class="popup-close">&times;</span>
+            <h1 class="title">Titulo</h1>
+            <p class="description">Compra Aprovada!</p>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.6/dist/inputmask.min.js"></script>
+    <script src="/js/utils.js"></script>
     <script src="/js/carrinho.js"></script>
 </body>
 </html>

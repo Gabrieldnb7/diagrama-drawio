@@ -1,15 +1,10 @@
-const $ = element => document.querySelector(element)
-
-function getProductIdFromUrl() {
-    // Obtém a parte da URL após a última barra '/'
-    var url = window.location.href;
-    var lastSlashIndex = url.lastIndexOf('/');
-    var id = url.substring(lastSlashIndex + 1);
-
-    // Retorna o ID obtido da URL
-    return id;
-  }
-
+function getProduto(){
+    fetch(`https://fakestoreapi.com/products/${getProductIdFromUrl()}`)
+              .then(res=>res.json())
+              .then(result=>{
+                  renderProduto(result)
+              });
+}
 
 function renderProduto(objeto){
     $("#prodImg").innerHTML = `
@@ -38,36 +33,35 @@ function renderProduto(objeto){
     })
 }
 
-function getProduto(){
-    let produto;
-    fetch(`https://fakestoreapi.com/products/${getProductIdFromUrl()}`)
-              .then(res=>res.json())
-              .then(result=>{
-                  renderProduto(result)
-              });
-    }
+let produto = {
+    productId: getProductIdFromUrl(),
+    quantity: 1
+}
 
+if(accessToken) {
+    fetch("http://localhost:3030/cart")
+        .then(response => response.json())
+        .then(data => {
+            const { id } = data.cart
+            produto.cartId = id
+        })
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const decreaseButton = document.getElementById("decrease");
     const increaseButton = document.getElementById("increase");
     const quantitySpan = document.getElementById("quantity");
-    const addToCartButton = document.getElementById("addToCart");
     const sizeButtons = document.querySelectorAll('.size-button');
     getProduto();
 
-    let quantity = 1;
-
     decreaseButton.addEventListener("click", () => {
-        if (quantity > 1) {
-            quantity--;
-            quantitySpan.textContent = quantity;
+        if (produto.quantity > 1) {
+            quantitySpan.textContent = --produto.quantity;
         }
     });
 
     increaseButton.addEventListener("click", () => {
-        quantity++;
-        quantitySpan.textContent = quantity;
+        quantitySpan.textContent = ++produto.quantity;
     });
     sizeButtons.forEach(button => {
         button.addEventListener("click", () => {
@@ -80,3 +74,40 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+const addToCartButton = document.getElementById("addToCart");
+
+addToCartButton.addEventListener('click', e => {
+    if(!accessToken) return window.location.href = "/login";
+
+    fetch("http://localhost:3030/cart/items/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(produto)
+    }).then(response => {
+        if(response.ok) {
+            showPopup("SUCESSO!", "Item adicionado ao carrinho!")
+        } else {
+            response.json().then( data  => {
+                const { msg } = data
+                showPopup("AVISO!", msg)
+            })
+        }
+
+    })
+})
+
+const closeModal = document.querySelector('.popup-close');
+closeModal.addEventListener('click', () => {
+    const popup = document.querySelector('.popup-modal');
+    popup.style.display = 'none';
+});
+
+function showPopup(title, msg) {
+    const popup = document.querySelector('.popup-modal');
+
+    popup.querySelector('.title').innerHTML = title
+    popup.querySelector('.description').innerHTML = msg
+    popup.style.display = 'block'
+}

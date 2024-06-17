@@ -290,7 +290,7 @@ body {
     flex: 1;
     padding: 20px;
     background-color: #fff;
-    border-radius: 5%;
+    border-radius: 10px;
 }
 
 .checkout-left {
@@ -358,6 +358,35 @@ p {
     width: 45%;
 }
 
+#checkout {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+#checkout li {
+    flex: 1;
+}
+
+#checkout li:first-child {
+    flex: 5; 
+}
+#checkout li:not(:first-child) {
+    flex: 1; 
+}
+
+.quantity {
+    width: 30%;;
+    text-align: center;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .product {
     display: flex;
     align-items: center;
@@ -372,6 +401,7 @@ p {
 
 .order-summary {
     border: 1px solid #ccc;
+    border-radius: 10px;
     padding: 20px;
 }
 
@@ -386,46 +416,86 @@ p {
 }
 
 #cep {
+    box-sizing: border-box;
+
     width: 120px;
+    padding: 0 25px;
 }
 
 /* carrinho.css - Adicional */
-.modal {
+.popup-modal {
     display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
+    position: absolute;
     top: 0;
+
     width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    height: 100dvh;
+
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal-content {
+.popup-modal-content {
+    position: relative;
     background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
+
+    margin: 5% auto;
+    border-radius: 10px;
     width: 80%;
     max-width: 400px;
     text-align: center;
+
+    animation: appear 200ms;
 }
 
-.close {
+.popup-modal-content .title {
+    background-color: #6d74f3;
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.popup-modal-content .description {
+    height: 80px;
+}
+
+.popup-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-top: -5px;
+
     color: #aaa;
-    float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.popup-close:hover,
+.popup-close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
 
+#finalizePurchase, #calculateShipping {
+    padding: 5px 10px;
+    background-color: #858cff;
+    color: white;
+    border: none;
+    border-radius: 5px;
 
+    transition: background-color 200ms;
+}
 
+#finalizePurchase:hover, #calculateShipping:hover {
+    background-color: #6d74f3;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

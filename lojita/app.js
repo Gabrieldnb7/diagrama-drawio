@@ -1,6 +1,7 @@
 import Express from "express";
 import { connection } from "./db.js";
 import cookieParser from "cookie-parser";
+import { validateCookie } from "./middleware/authMiddleware.js";
 
 import path from "path";
 import { fileURLToPath } from "url";
@@ -44,7 +45,7 @@ app.get('/produto/:id', (req, res) => {
 app.get('/catalogo', (req, res) => {
     res.sendFile(path.join(publicDir, 'catalogo.html'));
 });
-app.get('/carrinho', (req, res) => {
+app.get('/carrinho', validateCookie, (req, res) => {
     res.sendFile(path.join(publicDir, 'carrinho.html'));
 });
 app.get('/masculino', (req, res) => {
@@ -55,7 +56,7 @@ app.get('/feminino', (req, res) => {
 });
 
 // Rotas da API
-app.use("/auth", authRouter);
+app.use("/auth/", authRouter);
 app.use("/user/", userRouter);
 app.use("/cart/", cartRouter);
 

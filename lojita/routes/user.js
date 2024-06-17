@@ -4,4 +4,4 @@ import { validateCookie } from "../middleware/authMiddleware.js";
 
 export const userRouter = Router();
 
-userRouter.get("/:id", validateCookie, userController.findOne);
+userRouter.get("/", validateCookie, userController.findOne);

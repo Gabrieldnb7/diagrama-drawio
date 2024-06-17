@@ -54,3 +54,13 @@ export const remove = async (req, res) => {
     CartItem.destroy({ where: { id: itemId } });
     return res.status(204).send()
 }
+
+export const clear = async (req, res) => {
+    const userId = req.userId;
+
+    const cart = await Cart.findOne({where: { userId }});
+    if(!cart) return res.status(404).json({ msg: "Carrinho não encontrado." });
+
+    CartItem.destroy({ where: { cartId: cart.id } });
+    return res.status(204).send()
+}

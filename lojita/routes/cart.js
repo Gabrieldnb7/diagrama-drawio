@@ -5,7 +5,8 @@ import { validateCookie } from "../middleware/authMiddleware.js";
 
 export const cartRouter = Router();
 
-cartRouter.get("/:id", validateCookie, cartController.findOne);
+cartRouter.get("/", validateCookie, cartController.findOne);
 cartRouter.post("/items/", validateCookie, cartItemController.create);
 cartRouter.put("/items/:id", validateCookie, cartItemController.update);
 cartRouter.delete("/items/:id", validateCookie, cartItemController.remove);
+cartRouter.delete("/items/", validateCookie, cartItemController.clear);

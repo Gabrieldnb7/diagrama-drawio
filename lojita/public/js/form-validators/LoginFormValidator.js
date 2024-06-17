@@ -22,19 +22,21 @@ class LoginFormValidator {
         fetch("http://localhost:3030/auth/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, password })
-        }).then(response => response.json())
-            .then(data  => {
-                this.authenticateUser(data)
-            })
+            body: JSON.stringify({ email, password, rememberMe })
+        }).then(response => this.authenticateUser(response))
     }
 
-     authenticateUser(data) {
-        const { token, msg } = data;
+     authenticateUser(response) {
+        const { status } = response;
+
 
         this.deletePreviousError()
-        if(!token) {
-            return this.createAuthError(msg)
+        if(status !== 200) {
+            return response.json()
+                .then(body => {
+                    const { msg } = body
+                    this.createAuthError(msg)
+                })
         }
 
         window.location.pathname = '/'

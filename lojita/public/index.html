@@ -23,7 +23,10 @@
             <div class="card-container">
                 <div class="card">
                     <h3><button class="carrinho"><a href="/carrinho"><img src="/images/Cart.svg" alt="carrinho de compras" class="icones-header"></a></button></h3>
-                    <h3><button class="perfil"><a href="/login"><img src="/images/User.svg" alt="Botão do usuário" class="icones-header"></a></button></h3>
+                    <h3 class="dropdown">
+                        <button class="perfil"><a href="/login"><img src="/images/User.svg" alt="Botão do usuário" class="icones-header user-icon"></a></button>
+                        <div class="dropdown-content"><a id="logout">Log-out</a></div>
+                    </h3>
                 </div>
             </div>              
         </div>
@@ -35,6 +38,7 @@
             </ul>
         </div>
     </header>
+
     <div id="cartModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -44,13 +48,11 @@
             </ul>
             <div class="modal-footer">
                 <p>Subtotal: R$ <span id="subtotal">0,00</span></p>
-                <button class="checkout-buy-btn">Finalizar Pedido</button>
                 <button id="goToCart" class="checkout-btn">Ir para o Carrinho</button>
 
             </div>
         </div>
     </div>
-    
     
     <div carrossel>
         <div class="slideshow-container">
@@ -151,6 +153,8 @@
         </div>
     </footer>
 
+    <script src="/js/utils.js"></script>
     <script src="/js/index.js"></script>
+    <script src="/js/carrinho-modal.js"></script>
 </body>
 </html>

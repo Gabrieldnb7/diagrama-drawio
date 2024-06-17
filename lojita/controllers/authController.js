@@ -88,11 +88,16 @@ export const login = async (req, res) => {
 
         if(rememberMe) {
             const cookieAge = 1 * 24 * 60 * 60 * 1000 // 1 dia em millisegundos
-            res.status(200).cookie('access_token', token, { maxAge: cookieAge }).json({ msg: "Autenticação realizada com sucesso!" });
+            return res.status(200).cookie('access_token', token, { maxAge: cookieAge }).json({ msg: "Autenticação realizada com sucesso!" });
         }
 
-        res.status(200).cookie('access_token', token).json({ msg: "Sessão autenticada com sucesso!" });
+        return res.status(200).cookie('access_token', token).json({ msg: "Sessão autenticada com sucesso!" });
     } catch(error) {
         res.status(500).json({ msg: ""+error });
     }
+}
+
+export const logout = (req, res) => {
+    res.clearCookie('access_token');
+    res.status(206).json({ msg: 'Usuário deslogado, cookie removido!' }).redirect("/");
 }
